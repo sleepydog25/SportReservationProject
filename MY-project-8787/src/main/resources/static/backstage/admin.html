@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>管理者後台</title>
+<meta content="" name="description">
+<meta content="" name="keywords">
+
+<!-- Favicons -->
+<!-- <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+	rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+	rel="stylesheet">
+<link href="assets/vendor/boxicons/css/boxicons.min.css"
+	rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<!-- ======= Mobile nav toggle button ======= -->
+	<i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+	<!-- ======= Header ======= -->
+	<header id="header">
+		<div class="d-flex flex-column">
+
+			<div class="profile">
+				<img src="assets/img/profile-img.jpg" alt=""
+					class="img-fluid rounded-circle">
+				<h1 class="text-light">
+					<a href="/backstage/admin.html">管理者您好</a>
+				</h1>
+			</div>
+
+			<nav id="navbar" class="nav-menu navbar">
+				<ul>
+					<li><a href="/backstage/admin.html"
+						class="nav-link scrollto active"><i class="bx bx-server"></i>
+							<span>管理者後台</span></a></li>
+				</ul>
+			</nav>
+			<!-- .nav-menu -->
+		</div>
+	</header>
+	<!-- End Header -->
+
+	<main id="main">
+
+		<!-- ======= Breadcrumbs ======= -->
+		<section class="breadcrumbs">
+			<div class="container">
+
+				<div class="d-flex justify-content-between align-items-center">
+					<h2>管理者後台</h2>
+					<!--<ol>
+                        <li><a href="/backstage/index.html">管理者後台</a></li>
+                        <li>管理者後台</li>
+                    </ol>-->
+				</div>
+
+			</div>
+		</section>
+		<!-- End Breadcrumbs -->
+
+		<section class="inner-page">
+			<div class="container">
+				<h3>預約資料一覽</h3>
+				<table id="reservationTable" class="display">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>電子郵件</th>
+							<th>場地</th>
+							<th>日期</th>
+							<th>時間</th>
+							<th>是否借用球具</th>
+							<th>修改</th>
+							<th>刪除</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Data will be populated here -->
+					</tbody>
+				</table>
+				<!-- Button to trigger modal -->
+				<button id="addReservationButton" class="btn btn-primary">新增預約</button>
+
+				<!-- Modal for adding/updating reservation -->
+				<div class="modal fade" id="reservationModal" tabindex="-1"
+					aria-labelledby="modalTitle" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="modalTitle">新增預約</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<form id="reservationForm">
+									<input type="hidden" id="reservationId">
+									<div class="mb-3">
+										<label for="email" class="form-label">電子郵件:</label> <input
+											type="email" class="form-control" id="email" name="email"
+											required>
+									</div>
+									<div class="mb-3">
+										<label for="field" class="form-label">場地:</label>
+										<!-- <input
+											type="text" class="form-control" id="field" name="field"
+											required> -->
+										<select class="form-control" id="field" name="field" required>
+											<option value="第一羽毛球場">第一羽毛球場</option>
+											<option value="第二羽毛球場">第二羽毛球場</option>
+											<option value="第三羽毛球場">第三羽毛球場</option>
+											<option value="第一壁球球場">第一壁球球場</option>
+											<option value="第二壁球球場">第二壁球球場</option>
+											<option value="第三壁球球場">第三壁球球場</option>
+											<option value="第一桌球桌">第一桌球桌</option>
+											<option value="第二桌球桌">第二桌球桌</option>
+											<option value="第三桌球桌">第三桌球桌</option>
+											<option value="第一撞球桌">第一撞球桌</option>
+											<option value="第二撞球桌">第二撞球桌</option>
+											<option value="第三撞球桌">第三撞球桌</option>
+										</select>
+
+									</div>
+									<div class="mb-3">
+										<label for="date" class="form-label">日期:</label> <input
+											type="date" class="form-control" id="date" name="date"
+											required>
+									</div>
+									<div class="mb-3">
+										<label for="time" class="form-label">時間:</label>
+										<!--<input
+											type="time" class="form-control" id="time" name="time"
+											required>  -->
+										<select class="form-control" id="time" name="time" required>
+											<option value="" disabled selected>選擇預約時間</option>
+											<option value="08:00-09:00">08:00-09:00</option>
+											<option value="09:00-10:00">09:00-10:00</option>
+											<option value="10:00-11:00">10:00-11:00</option>
+											<option value="11:00-12:00">11:00-12:00</option>
+											<option value="12:00-13:00">12:00-13:00</option>
+											<option value="13:00-14:00">13:00-14:00</option>
+											<option value="14:00-15:00">14:00-15:00</option>
+											<option value="15:00-16:00">15:00-16:00</option>
+											<option value="16:00-17:00">16:00-17:00</option>
+											<option value="17:00-18:00">17:00-18:00</option>
+											<option value="19:00-20:00">19:00-20:00</option>
+											<option value="21:00-22:00">21:00-22:00</option>
+										</select>
+									</div>
+									<div class="mb-3 form-check">
+										<input type="checkbox" class="form-check-input" id="equipment"
+											name="equipment"> <label for="equipment"
+											class="form-check-label">借用球具</label>
+									</div>
+									<button type="submit" class="btn btn-primary">提交</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+	<!-- End #main -->
+
+
+	<a href="#"
+		class="back-to-top d-flex align-items-center justify-content-center"><i
+		class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+	<script src="assets/vendor/aos/aos.js"></script>
+	<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="assets/vendor/typed.js/typed.umd.js"></script>
+	<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+	<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<!-- Template Main JS File -->
+	<script src="assets/js/main.js"></script>
+
+	<script>
+		$(document)
+				.ready(
+						function() {
+							const table = $('#reservationTable')
+									.DataTable(
+											{
+												"ajax" : {
+													"url" : "/api/reservations/all",
+													"dataSrc" : ""
+												},
+												"columns" : [
+														{
+															"data" : "id"
+														},
+														{
+															"data" : "email"
+														},
+														{
+															"data" : "field"
+														},
+														{
+															"data" : "date"
+														},
+														{
+															"data" : "time"
+														},
+														{
+															"data" : "equipment",
+															"render" : function(
+																	data, type,
+																	row) {
+																return data ? '是'
+																		: '否';
+															}
+														},
+														{
+															"data" : null,
+															"defaultContent" : '<button class="editButton btn btn-warning">修改</button>'
+														},
+														{
+															"data" : null,
+															"defaultContent" : '<button class="deleteButton btn btn-danger">刪除</button>'
+														} ]
+											});
+
+							// 新增或修改預約表單提交事件
+							$('#reservationForm')
+									.on(
+											'submit',
+											function(event) {
+												event.preventDefault();
+
+												const reservationId = $(
+														'#reservationId').val();
+												const reservationData = {
+													email : $('#email').val(),
+													field : $('#field').val(),
+													date : $('#date').val(),
+													time : $('#time').val(),
+													equipment : $('#equipment')
+															.is(':checked')
+												};
+
+												const url = reservationId ? `/api/reservations/${reservationId}`
+														: '/api/reservations';
+												const method = reservationId ? 'PUT'
+														: 'POST';
+
+												$
+														.ajax({
+															url : url,
+															method : method,
+															contentType : 'application/json',
+															data : JSON
+																	.stringify(reservationData),
+															success : function(
+																	response) {
+																$(
+																		'#reservationModal')
+																		.modal(
+																				'hide');
+																table.ajax
+																		.reload();
+															},
+															error : function(
+																	error) {
+																alert('操作失敗，請重試');
+															}
+														});
+											});
+
+							// 點擊修改按鈕事件
+							$('#reservationTable tbody').on(
+									'click',
+									'.editButton',
+									function() {
+										const data = table.row(
+												$(this).parents('tr')).data();
+										$('#reservationId').val(data.id);
+										$('#email').val(data.email);
+										$('#field').val(data.field);
+										$('#date').val(data.date);
+										$('#time').val(data.time);
+										$('#equipment').prop('checked',
+												data.equipment);
+										$('#modalTitle').text('修改預約');
+										$('#reservationModal').modal('show');
+									});
+
+							// 點擊刪除按鈕事件
+							$('#reservationTable tbody')
+									.on(
+											'click',
+											'.deleteButton',
+											function() {
+												const data = table.row(
+														$(this).parents('tr'))
+														.data();
+												if (confirm('確定要刪除這個預約嗎？')) {
+													$
+															.ajax({
+																url : `/api/reservations/${data.id}`,
+																method : 'DELETE',
+																success : function(
+																		response) {
+																	table.ajax
+																			.reload();
+																},
+																error : function(
+																		error) {
+																	alert('刪除失敗，請重試');
+																}
+															});
+												}
+											});
+
+							// 點擊新增按鈕事件
+							$('#addReservationButton').on('click', function() {
+								$('#reservationId').val('');
+								$('#reservationForm')[0].reset();
+								$('#modalTitle').text('新增預約');
+								$('#reservationModal').modal('show');
+							});
+						});
+	</script>
+
+</body>
+
+</html>

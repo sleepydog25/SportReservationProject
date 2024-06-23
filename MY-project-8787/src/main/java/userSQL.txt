@@ -1,0 +1,36 @@
+-- CREATE DATABASE web;
+USE web;
+drop table if exists users;
+
+
+-- CREATE TABLE users (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     email VARCHAR(255) NOT NULL,
+--     password VARCHAR(255) NOT NULL
+-- );
+
+-- INSERT INTO users (email, password) VALUES ('user@example.com', 'Password123');
+drop table if exists reservations;
+CREATE TABLE reservations (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    time VARCHAR(255) NOT NULL,
+    equipment BOOLEAN NOT NULL,
+    field VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    birthday DATE NOT NULL,
+    phone VARCHAR(15),
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    uuid CHAR(36) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO users (name, gender, birthday, phone, email, password,uuid)
+VALUES ('John Doe', 'male', '1990-01-01', '0912345678', 'user@example.com', 'Password123','550e8400-e29b-41d4-a716-446655440000');
