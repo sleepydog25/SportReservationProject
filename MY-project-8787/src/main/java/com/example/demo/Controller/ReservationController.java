@@ -32,9 +32,9 @@ public class ReservationController {
     public ResponseEntity<?> createReservation(@RequestBody ReservationDto reservationDto) {
         try {
             reservationService.createReservation(reservationDto);
-            return ResponseEntity.ok(new LoginResponse(true, "Reservation successful"));
+            return ResponseEntity.ok(new LoginResponse(true, "預約成功"));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new LoginResponse(false, "Reservation failed"));
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new LoginResponse(false, "預約失敗"));
         }
     }
 
@@ -136,13 +136,138 @@ public class ReservationController {
         return ResponseEntity.ok(reservations);
     }
     
+//    @GetMapping("/user-ranking")
+//    public ResponseEntity<UserRankingDto> getUserRanking(@RequestParam String email) {
+//        UserRankingDto ranking = reservationService.getUserRanking(email);
+//        if (ranking != null) {
+//            return ResponseEntity.ok(ranking);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+    
     @GetMapping("/user-ranking")
-    public ResponseEntity<UserRankingDto> getUserRanking(@RequestParam String email) {
-        UserRankingDto ranking = reservationService.getUserRanking(email);
-        if (ranking != null) {
-            return ResponseEntity.ok(ranking);
-        } else {
-            return ResponseEntity.notFound().build();
+    public String getUserRanking(@RequestParam String email) {
+        int userRank = reservationService.getUserRank(email);
+        int totalUsers = reservationService.getTotalUserCount();
+
+        return userRank + "/" + totalUsers;
+    }
+    
+    @GetMapping("/timeslots")
+    public ResponseEntity<List<String>> getReservedTimeslots(@RequestParam String date, @RequestParam String field) {
+        List<String> reservedTimeslots = reservationService.getReservedTimeslots(date, field);
+        return ResponseEntity.ok(reservedTimeslots);
+    }
+    
+    @GetMapping("/field-usage-frequency")
+    public ResponseEntity<List<Map<String, Object>>> getFieldUsageFrequency() {
+        try {
+            List<Map<String, Object>> frequencyData = reservationService.getFieldUsageFrequency();
+            return ResponseEntity.ok(frequencyData);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+    
+    @GetMapping("/time-slot-usage-frequency")
+    public ResponseEntity<List<Map<String, Object>>> getTimeSlotUsageFrequency() {
+        try {
+            List<Map<String, Object>> frequencyData = reservationService.getTimeSlotUsageFrequency();
+            return ResponseEntity.ok(frequencyData);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+    
+    @GetMapping("/equipment-usage-statistics")
+    public ResponseEntity<Map<String, Integer>> getEquipmentUsageStatistics() {
+        try {
+            Map<String, Integer> statistics = reservationService.getEquipmentUsageStatistics();
+            return ResponseEntity.ok(statistics);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 }
+
+//<div class="calendar">
+//<!-- Weekly Calendar -->
+//<!--<h5>Weekly Calendar</h5>-->
+//<!-- Calendar Title -->
+//
+//<div class="table-responsive">
+//	<!-- Make the table responsive -->
+//	<table class="table table-bordered table-dark">
+//		<!-- Table with Bootstrap bordered class -->
+//		<thead>
+//			<!-- Table header row -->
+//			<tr>
+//				<!-- Time column -->
+//				<th>Time</th>
+//				<th>Monday</th>
+//				<!-- Monday column -->
+//				<th>Tuesday</th>
+//				<!-- Tuesday column -->
+//				<th>Wednesday</th>
+//				<!-- Wednesday column -->
+//				<th>Thursday</th>
+//				<!-- Thursday column -->
+//				<th>Friday</th>
+//				<!-- Friday column -->
+//				<th>Saturday</th>
+//				<!-- Saturday column -->
+//				<th>Sunday</th>
+//				<!-- Sunday column -->
+//			</tr>
+//		</thead>
+//		<tbody>
+//			<!-- Example Rows -->
+//			<tr>
+//				<!-- Time slot -->
+//				<td>9:00 - 10:00 AM</td>
+//				<td>Event 1</td>
+//				<!-- Monday event -->
+//				<td></td>
+//				<!-- Empty cell for Tuesday -->
+//				<td></td>
+//				<!-- Empty cell for Wednesday -->
+//				<td>Event 2</td>
+//				<!-- Thursday event -->
+//				<td></td>
+//				<!-- Empty cell for Friday -->
+//				<td></td>
+//				<!-- Empty cell for Saturday -->
+//				<td></td>
+//				<!-- Empty cell for Sunday -->
+//			</tr>
+//			<tr>
+//				<!-- Time slot -->
+//				<td>10:00 - 11:00 AM</td>
+//				<td></td>
+//				<!-- Empty cell for Monday -->
+//				<td>Event 3</td>
+//				<!-- Tuesday event -->
+//				<td></td>
+//				<!-- Empty cell for Wednesday -->
+//				<td></td>
+//				<!-- Empty cell for Thursday -->
+//				<td>Event 4</td>
+//				<!-- Friday event -->
+//				<td></td>
+//				<!-- Empty cell for Saturday -->
+//				<td></td>
+//				<!-- Empty cell for Sunday -->
+//			</tr>
+//			<!-- More rows as needed -->
+//		</tbody>
+//	</table>
+//</div>
+//</div>
+//</div>
+//</div>
+//</div>
+//</div>

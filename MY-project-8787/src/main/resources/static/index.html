@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--hcaptcha server key: ES_b114bc23b78c47c7947ff3a34608b49d -->
+<script src="https://cdn.jsdelivr.net/npm/@hcaptcha/vanilla-hcaptcha"></script>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -29,6 +30,8 @@
 
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+
+
 </head>
 
 <body id="page-top">
@@ -86,7 +89,7 @@
 					<h2 class="text-white mt-0">運動場地租借系統使用方式</h2>
 					<hr class="divider divider-light" />
 					<p class="text-white-75 mb-4">
-						先註冊再使用好嗎拜託<br />git 不要雷我
+						1. 登入後，進入個人首頁點擊「+」進行預約<br>2.完成預約後，生成 QR Code, 即可作為鑰匙感應入場<br>3.透過「我的預約」查看尚未發生的預約與自由取消<br>4.透過「我的練習紀錄」查看過去預約紀錄<br>5.點選使用者頭像即可更改個人資料與更改密碼
 					</p>
 					<a class="btn btn-light btn-xl" href="#login">點我註冊!</a>
 				</div>
@@ -102,7 +105,7 @@
 				<div class="col">
 					<div class="card border-0" data-bs-toggle="modal"
 						data-bs-target="#portfolioModal" data-title="超級綠色羽球場"
-						data-text="他就是個羽球場，你還需要知道甚麼？"
+						data-text="1. 請勿攜帶食物與飲料進入場地;2. 請保持場地整潔;3. 請勿私自占用場地"
 						data-img="assets/img/portfolio/fullsize/01.jpg">
 						<div class="image-container">
 							<img src="assets/img/portfolio/fullsize/01.jpg"
@@ -121,7 +124,7 @@
 				<div class="col">
 					<div class="card border-0" data-bs-toggle="modal"
 						data-bs-target="#portfolioModal" data-title="超級紅色壁球場"
-						data-text="這是個壁球場喔鳩咪"
+						data-text="1. 請勿攜帶食物與飲料進入場地;2. 請保持場地整潔;3. 請勿私自占用場地"
 						data-img="assets/img/portfolio/fullsize/02.jpg">
 						<div class="image-container">
 							<img src="assets/img/portfolio/fullsize/02.jpg"
@@ -140,7 +143,7 @@
 				<div class="col">
 					<div class="card border-0" data-bs-toggle="modal"
 						data-bs-target="#portfolioModal" data-title="桌球桌"
-						data-text="初步推估，他應該是個桌球桌"
+						data-text="1. 請勿攜帶食物與飲料進入場地;2. 請保持場地整潔;3. 請勿私自占用場地"
 						data-img="assets/img/portfolio/fullsize/03.jpg">
 						<div class="image-container">
 							<img src="assets/img/portfolio/fullsize/03.jpg"
@@ -159,7 +162,7 @@
 				<div class="col">
 					<div class="card border-0" data-bs-toggle="modal"
 						data-bs-target="#portfolioModal" data-title="撞球台"
-						data-text="打撞球要聽RAP"
+						data-text="1. 請勿攜帶食物與飲料進入場地;2. 請保持場地整潔;3. 請勿私自占用場地"
 						data-img="assets/img/portfolio/fullsize/04.jpg">
 						<div class="image-container">
 							<img src="assets/img/portfolio/fullsize/04.jpg"
@@ -203,16 +206,14 @@
 						<h5 class="mt-3" id="modalTitle"></h5>
 						<!-- Empty title text for dynamic content -->
 						<p id="modalText" class="mt-2"></p>
-					</div>
-				</div>
-			</div>
-		</div>
+						<!-- Empty description text for dynamic content -->
+					
 	</section>
 
 	<!-- login / register -->
 	<section class="page-section bg-dark text-white" id="login">
 		<div class="container px-4 px-lg-5 text-center">
-			<h2 class="mb-4">想加入我們了嗎？快交出你的個資吧!</h2>
+			<h2 class="mb-4">想加入我們了嗎？趕快註冊吧!</h2>
 			<div class="login-container">
 				<form id="loginForm">
 					<div class="mb-3">
@@ -230,7 +231,7 @@
 							><</div>
 					</div>
 					<div class="mb-3">
-						<button type="submit" class="btn btn-light">飛向宇宙 浩瀚無垠</button>
+						<button type="submit" class="btn btn-light">登入後台</button>
 					</div>
 					<div class="mb-3">
 						<!-- 我忘記密碼了啦 -->
@@ -245,7 +246,7 @@
 				<!-- 註冊功能 -->
 				<button type="button" class="btn btn-primary btn-xl"
 					data-bs-toggle="modal" data-bs-target="#registrationModal"
-					style="font-size: medium;">個資給我 ლ(́◉◞౪◟◉ლ)</button>
+					style="font-size: medium;">歡迎註冊</button>
 
 				<!-- 註冊功能 Modal -->
 				<div class="modal fade" id="registrationModal" tabindex="-1"
@@ -332,7 +333,7 @@
 										</div>
 									</div>
 									<!-- Submit Button -->
-									<button type="submit" class="btn btn-primary">Submit</button>
+									<button type="submit" class="btn btn-primary">註冊</button>
 								</form>
 							</div>
 						</div>
@@ -383,14 +384,14 @@
 				<p>聯絡資訊</p>
 				<p>地址：237303 新北市三峽區大學路151號</p>
 				<p>電話：02-8674-1111</p>
-				<p>營業時間：Always Open 7-11</p>
+				<p>營業時間：8:00-22:00</p>
 				<p></p>
 				<p>Copyright &copy; 2024 - 運動場地租借系統 All Rights Reserved.</p>
 			</div>
 		</div>
 	</footer>
 
-	<div id="error-message" style="color: red;">ERROR BRO</div>
+
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -401,18 +402,21 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<!-- Popper.js library -->
 	<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+	<!-- crypto-js -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+	<!-- sweet alert -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
 
 	<script>
-    
     document.addEventListener('DOMContentLoaded', function() {
         const today = new Date().toISOString().split('T')[0];
         const minDate = '1920-01-01';
         document.getElementById('register-birthday').setAttribute('max', today);
         document.getElementById('register-birthday').setAttribute('min', minDate);
 
-        // registration ajax
         document.getElementById('registrationForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -424,14 +428,18 @@
             const password = document.getElementById('register-password').value;
             const checkPassword = document.getElementById('register-checkPassword').value;
 
-            // 驗證表單數據
+            // Validate form data
             const phoneRegex = /^09\d{8}$/;
             const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
             let valid = true;
 
             if (!genderElement) {
-                alert('請選擇性別');
+                Swal.fire({
+                    icon: 'warning',
+                    title: '警告',
+                    text: '請選擇性別'
+                });
                 valid = false;
             } else {
                 gender = genderElement.value;
@@ -479,8 +487,7 @@
             if (!valid) {
                 return;
             }
-
-            // 如果所有驗證都通過，提交表單或進行下一步操作
+            // If all validations pass, submit the form or proceed
             fetch('/api/register', {
                 method: 'POST',
                 headers: {
@@ -492,75 +499,144 @@
                     birthday: birthday,
                     phone: phone,
                     email: email,
-                    password: password
+                    password: password,
                 })
             })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert('註冊成功，請登入');
-                    window.location.href = '/index.html#login'; // 跳轉到登入區塊
+                    Swal.fire({
+                        icon: 'success',
+                        title: '成功',
+                        text: '註冊成功，請登入'
+                    }).then(() => {
+                        // Close the modal
+                        const registrationModal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));
+                        registrationModal.hide();
+                        // Redirect to login section
+                        window.location.href = '/index.html#login';
+                    });
                 } else {
-                    alert(data.message);
+                    Swal.fire({
+                        icon: 'error',
+                        title: '錯誤',
+                        text: data.message
+                    });
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: '錯誤',
+                    text: '註冊過程中發生錯誤，請稍後重試'
+                });
             });
         });
     });
-    
-    
+
     // Login ajax
-document.getElementById("loginForm").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Prevent the form from submitting
+    document.getElementById("loginForm").addEventListener("submit", async function(event) {
+        event.preventDefault(); // Prevent the form from submitting
 
-    const email = document.getElementById('exampleInputEmail1').value;
-    const password = document.getElementById('login-password').value;
+        const email = document.getElementById('exampleInputEmail1').value;
+        const password = document.getElementById('login-password').value;
 
-    // Password validation
-    var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    const passwordInput = document.getElementById("login-password");
-    if (!passwordRegex.test(password)) {
-        passwordInput.setCustomValidity("密碼長度至少為8個字符，且包含至少一個數字、一個小寫字母和一個大寫字母");
-        passwordInput.reportValidity();
-        return;
-    } else {
-        passwordInput.setCustomValidity(""); // Clear any previous error message
-    }
+        // Password validation
+        var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        const passwordInput = document.getElementById("login-password");
+        if (!passwordRegex.test(password)) {
+            passwordInput.setCustomValidity("密碼長度至少為8個字符，且包含至少一個數字、一個小寫字母和一個大寫字母");
+            passwordInput.reportValidity();
+            return;
+        } else {
+            passwordInput.setCustomValidity(""); // Clear any previous error message
+        }
 
-    try {
-        const response = await fetch('/api/login', {
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email, password: password })
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '成功',
+                    text: '登入成功'
+                }).then(() => {
+                    // 將用戶的電子郵件存儲在本地存儲或會話存儲中
+                    sessionStorage.setItem('userEmail', email);
+                    // 根據是否是管理員進行跳轉
+                    if (data.admin) {
+                        window.location.href = '/backstage/admin.html'; // 跳轉到管理員頁面
+                    } else {
+                        window.location.href = '/backstage/index.html'; // 跳轉到普通用戶頁面
+                    }
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: '錯誤',
+                    text: '登入失敗: ' + data.message
+                });
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: '錯誤',
+                text: '登入失敗，請稍後重試'
+            });
+        }
+    });
+
+    // Add event listener to clear custom validity message when user starts typing
+    document.getElementById("login-password").addEventListener("input", function() {
+        this.setCustomValidity("");
+    });
+    
+    document.getElementById('forgetForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // 阻止表單默認提交行為
+
+        var email = document.getElementById('forget-email').value;
+
+        fetch('/forget-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email: email, password: password })
-        });
-
-        const data = await response.json();
-        if (data.success) {
-            alert('登入成功');
-            // 將用戶的電子郵件存儲在本地存儲或會話存儲中
-            sessionStorage.setItem('userEmail', email);
-            // 根據是否是管理員進行跳轉
-            if (data.admin) {
-                window.location.href = '/backstage/admin.html'; // 跳轉到管理員頁面
+            body: JSON.stringify({ email: email })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '郵件已發送',
+                    text: '重設密碼的郵件已發送到您的信箱',
+                });
             } else {
-                window.location.href = '/backstage/index.html'; // 跳轉到普通用戶頁面
+                Swal.fire({
+                    icon: 'error',
+                    title: '發送失敗',
+                    text: '發送郵件時出錯，請稍後再試',
+                });
             }
-        } else {
-            alert('登入失敗: ' + data.message);
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('登入失敗，請稍後重試');
-    }
-});
-        // Add event listener to clear custom validity message when user starts typing
-        document.getElementById("login-password").addEventListener("input", function() {
-            this.setCustomValidity("");
+        })
+        .catch(error => {
+            console.error('錯誤:', error);
+            Swal.fire({
+                icon: 'error',
+                title: '發送失敗',
+                text: '發送郵件時出錯，請稍後再試',
+            });
         });
+    });
     </script>
 </body>
 </html>

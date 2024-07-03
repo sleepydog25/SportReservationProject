@@ -58,7 +58,7 @@
                 <img src="assets/img/profile-img.jpg" alt=""
                     class="img-fluid rounded-circle">
                 <h1 class="text-light">
-                    <a href="./personal-page.html">使用者您好</a>
+                     <a href="./personal-page.html" id="user-name">      </a>
                 </h1>
             </div>
 
@@ -139,6 +139,7 @@
     <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- web socket -->
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
@@ -157,6 +158,26 @@
     <script src="assets/js/main.js"></script>
 
     <script>
+    
+ // update user name
+    document.addEventListener('DOMContentLoaded', function() {
+        const email = sessionStorage.getItem('userEmail');
+        if (email) {
+            fetch(`/api/user-name?email=${email}`)
+                .then(response => response.text())
+                .then(name => {
+                    if (name) {
+                        document.getElementById('user-name').innerText = `${name}您好`;
+                    } else {
+                        document.getElementById('user-name').innerText = '使用者您好';
+                    }
+                })
+                .catch(error => console.error('Error fetching user name:', error));
+        } else {
+            console.error('No email found in sessionStorage.');
+        }
+    });
+
     document.addEventListener("DOMContentLoaded", function() {
         let email = sessionStorage.getItem('userEmail');
         if (!email) {
@@ -282,14 +303,24 @@
             })
             .then(response => {
                 if (response.ok) {
-                    alert('預約已取消');
-                    // 刷新頁面或移除取消的預約卡片
-                    location.reload(); // 簡單的方式是刷新頁面
+                    Swal.fire({
+                        icon: 'success',
+                        title: '預約已取消',
+                        text: '預約已成功取消'
+                    }).then(() => {
+                        // 刷新頁面或移除取消的預約卡片
+                        location.reload(); // 簡單的方式是刷新頁面
+                    });
                 } else {
-                    alert('取消預約失敗');
+                    Swal.fire({
+                        icon: 'error',
+                        title: '取消預約失敗',
+                        text: '取消預約失敗，請重試'
+                    });
                 }
             })
             .catch(error => console.error('Error cancelling reservation:', error));
         }
     });
+
     </script>
