@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--hcaptcha server key: ES_b114bc23b78c47c7947ff3a34608b49d -->
+<script src="https://cdn.jsdelivr.net/npm/@hcaptcha/vanilla-hcaptcha"></script>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>運動場地預約系統</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap Icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" />
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Google fonts-->
+<link
+	href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700"
+	rel="stylesheet" />
+<link
+	href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+	rel="stylesheet" type="text/css" />
+<!-- SimpleLightbox plugin CSS-->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" /> -->
+
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="css/styles.css" rel="stylesheet" />
+
+
+</head>
+
+<body id="page-top">
+	<!-- Navigation-->
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3"
+		id="mainNav">
+		<div class="container px-4 px-lg-5">
+			<a class="navbar-brand" href="#page-top">運動場地預約系統</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ms-auto my-2 my-lg-0">
+					<li class="nav-item"><a class="nav-link" href="#about">關於我們</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#nPorfo">場地介紹</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#login">登入/註冊</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#footer">聯絡我們</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Masthead-->
+	<header class="masthead">
+		<div class="container px-4 px-lg-5 h-100">
+			<div
+				class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+				<div class="col-lg-8 align-self-end">
+					<h1 class="text-white font-weight-bold">運動場地租借系統</h1>
+					<hr class="divider" />
+				</div>
+				<div class="col-lg-8 align-self-baseline">
+					<p class="text-white-75 mb-5">
+						永無止境，啟迪無限可能<br />Unlock Your Field of Dreams with Our Rental
+						System!
+					</p>
+					<a class="btn btn-primary btn-xl" href="#about">認識我們</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- About-->
+	<section class="page-section bg-primary" id="about">
+		<div class="container px-4 px-lg-5">
+			<div class="row gx-4 gx-lg-5 justify-content-center">
+				<div class="col-lg-8 text-center">
+					<h2 class="text-white mt-0">運動場地租借系統使用方式</h2>
+					<hr class="divider divider-light" />
+					<p class="text-white-75 mb-4">
+						1. 登入後，進入個人首頁點擊「+」進行預約<br>2.完成預約後，生成 QR Code, 即可作為鑰匙感應入場<br>3.透過「我的預約」查看尚未發生的預約與自由取消<br>4.透過「我的練習紀錄」查看過去預約紀錄<br>5.點選使用者頭像即可更改個人資料與更改密碼
+					</p>
+					<a class="btn btn-light btn-xl" href="#login">點我註冊!</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- New Portfolio-->
+	<section class="newPortfolio" id="nPorfo">
+		<div id="portfolio" class="container-fluid p-0">
+			<div class="row row-cols-1 row-cols-md-2 g-0">
+				<!-- Portfolio Item 1 -->
+				<div class="col">
+					<div class="card border-0" data-bs-toggle="modal"
+						data-bs-target="#portfolioModal" data-title="超級綠色羽球場"
+						data-text="1. 請勿攜帶食物與飲料進入場地;2. 請保持場地整潔;3. 請勿私自占用場地"
+						data-img="assets/img/portfolio/fullsize/01.jpg">
+						<div class="image-container">
+							<img src="assets/img/portfolio/fullsize/01.jpg"
+								alt="Project Name" />
+						</div>
+						<div
+							class="card-img-overlay d-flex align-items-center justify-content-center text-center text-white">
+							<div>
+								<div class="project-category text-white-50">羽球</div>
+								<div class="project-name">超級綠色羽球場</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Portfolio Item 2 -->
+				<div class="col">
+					<div class="card border-0" data-bs-toggle="modal"
+						data-bs-target="#portfolioModal" data-title="超級紅色壁球場"
+						data-text="1. 請勿攜帶食物與飲料進入場地;2. 請保持場地整潔;3. 請勿私自占用場地"
+						data-img="assets/img/portfolio/fullsize/02.jpg">
+						<div class="image-container">
+							<img src="assets/img/portfolio/fullsize/02.jpg"
+								alt="Project Name" />
+						</div>
+						<div
+							class="card-img-overlay d-flex align-items-center justify-content-center text-center text-white">
+							<div>
+								<div class="project-category text-white-50">壁球</div>
+								<div class="project-name">超級紅色壁球場</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Portfolio Item 3 -->
+				<div class="col">
+					<div class="card border-0" data-bs-toggle="modal"
+						data-bs-target="#portfolioModal" data-title="桌球桌"
+						data-text="1. 請勿攜帶食物與飲料進入場地;2. 請保持場地整潔;3. 請勿私自占用場地"
+						data-img="assets/img/portfolio/fullsize/03.jpg">
+						<div class="image-container">
+							<img src="assets/img/portfolio/fullsize/03.jpg"
+								alt="Project Name" />
+						</div>
+						<div
+							class="card-img-overlay d-flex align-items-center justify-content-center text-center text-white">
+							<div>
+								<div class="project-category text-white-50">桌球</div>
+								<div class="project-name">桌球桌</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Portfolio Item 4 -->
+				<div class="col">
+					<div class="card border-0" data-bs-toggle="modal"
+						data-bs-target="#portfolioModal" data-title="撞球台"
+						data-text="1. 請勿攜帶食物與飲料進入場地;2. 請保持場地整潔;3. 請勿私自占用場地"
+						data-img="assets/img/portfolio/fullsize/04.jpg">
+						<div class="image-container">
+							<img src="assets/img/portfolio/fullsize/04.jpg"
+								alt="Project Name" />
+						</div>
+						<div
+							class="card-img-overlay d-flex align-items-center justify-content-center text-center text-white">
+							<div>
+								<div class="project-category text-white-50">撞球</div>
+								<div class="project-name">撞球台</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="portfolioModal" tabindex="-1"
+			role="dialog" aria-labelledby="portfolioModalLabel"
+			aria-hidden="true">
+			<!-- Modal element with fade effect -->
+			<div class="modal-dialog modal-dialog-centered modal-lg"
+				role="document">
+				<!-- Modal dialog centered and large size -->
+				<div class="modal-content">
+					<!-- Modal content container -->
+					<div class="modal-header">
+						<!-- Modal header container -->
+						<h5 class="modal-title" id="portfolioModalLabel"></h5>
+						<!-- Empty modal title for dynamic content -->
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+						<!-- Close button with Bootstrap dismiss action -->
+					</div>
+					<div class="modal-body">
+						<!-- Content container -->
+						<div class="image-container">
+							<!-- Image Container to Maintain Aspect Ratio -->
+							<img id="modalImg" src="" class="img-fluid" alt="">
+							<!-- Placeholder image with fluid class for responsiveness -->
+						</div>
+						<h5 class="mt-3" id="modalTitle"></h5>
+						<!-- Empty title text for dynamic content -->
+						<p id="modalText" class="mt-2"></p>
+						<!-- Empty description text for dynamic content -->
+					
+	</section>
+
+	<!-- login / register -->
+	<section class="page-section bg-dark text-white" id="login">
+		<div class="container px-4 px-lg-5 text-center">
+			<h2 class="mb-4">想加入我們了嗎？趕快註冊吧!</h2>
+			<div class="login-container">
+				<form id="loginForm">
+					<div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">電子郵箱</label> <input
+							type="email" class="form-control" id="exampleInputEmail1"
+							aria-describedby="emailHelp" placeholder="name@example.com"
+							required>
+						<div id="email-notify" class="form-text">shh...你的 email
+							是我們之間的小秘密><</div>
+					</div>
+					<div class="mb-3">
+						<label for="login-password" class="form-label">密碼</label> <input
+							type="password" class="form-control" id="login-password">
+						<div id="password-notify" class="form-text">shh...你的密碼是我們之間的小秘密
+							><</div>
+					</div>
+					<div class="mb-3">
+						<button type="submit" class="btn btn-light">登入後台</button>
+					</div>
+					<div class="mb-3">
+						<!-- 我忘記密碼了啦 -->
+						<div id="forget" class="forget-password"></div>
+						<button type="button" class="transparent-btn"
+							data-bs-toggle="modal" data-bs-target="#forget-modal"
+							style="font-size: small;">我忘記密碼了啦</button>
+					</div>
+				</form>
+
+				<!-- <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/theme/creative/">註冊!</a> -->
+				<!-- 註冊功能 -->
+				<button type="button" class="btn btn-primary btn-xl"
+					data-bs-toggle="modal" data-bs-target="#registrationModal"
+					style="font-size: medium;">歡迎註冊</button>
+
+				<!-- 註冊功能 Modal -->
+				<div class="modal fade" id="registrationModal" tabindex="-1"
+					aria-labelledby="registrationModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content"
+							style="background-color: rgba(33, 37, 41, 0.5);">
+							<!-- Transparent background -->
+							<div class="modal-header">
+								<!-- Modal Title -->
+								<h5 class="modal-title" id="registrationModalLabel"
+									style="text-align: left; color: rgba(255, 255, 255, 0.8);">註冊</h5>
+								<!-- Align left -->
+								<!-- Close Button -->
+								<button type="button" class="btn btn-close"
+									data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body" style="text-align: left;">
+								<!-- Align left -->
+								<!-- Registration Form -->
+								<form id="registrationForm">
+									<div>
+										<!-- Name Input Field -->
+										<div class="mb-3">
+											<label for="name" class="form-label">姓名</label> <input
+												type="text" class="form-control" id="name"
+												placeholder="Enter your name" required>
+										</div>
+										<!--gender Input field-->
+										<div class="mb-3">
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio" name="gender"
+													id="male" value="male"> <label
+													class="form-check-label" for="male">男性</label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio" name="gender"
+													id="female" value="female"> <label
+													class="form-check-label" for="female">女性</label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio" name="gender"
+													id="others" value="others" required> <label
+													class="form-check-label" for="others">其他</label>
+											</div>
+										</div>
+										<!-- Date Input Field -->
+										<div class="mb-3">
+											<label for="register-birthday" class="form-label">出生年月</label>
+											<input type="date" class="form-control"
+												id="register-birthday" placeholder="yyyy-mm-dd" required>
+										</div>
+										<!-- Phone Input Field -->
+										<div class="mb-3">
+											<label for="register-phone" class="form-label">行動電話</label> <input
+												type="tel" class="form-control" id="register-phone"
+												placeholder="09XXXXXXXX，共10碼">
+											<div class="invalid-feedback">行動電話格式不正確，請輸入有效的手機號碼。</div>
+										</div>
+										<!-- Email Input Field -->
+										<div class="mb-3">
+											<label for="email" class="form-label">電子信箱</label> <input
+												type="email" class="form-control" id="email"
+												placeholder="name@example.com" required>
+											<div class="invalid-feedback">請輸入有效的電子信箱。</div>
+										</div>
+										<!--Password area-->
+										<div class="mb-3">
+											<label for="register-password" class="form-label">密碼</label>
+											<input type="password" class="form-control"
+												id="register-password"
+												placeholder="密碼至少要8個字元，且包含至少一個數字、小寫和大寫字母" required
+												minlength="8">
+											<div class="invalid-feedback">請輸入有效的密碼，密碼至少要8個字元，且包含至少一個數字、小寫和大寫字母。</div>
+										</div>
+										<!--Repeat Password area-->
+										<div class="mb-3">
+											<label for="register-checkPassword" class="form-label">
+												拜託再打一次密碼啦 </label> <input type="password" class="form-control"
+												id="register-checkPassword"
+												placeholder="密碼至少要8個字元，且包含至少一個數字、小寫和大寫字母" required
+												minlength="8">
+											<div class="invalid-feedback">兩次密碼不一致。</div>
+										</div>
+									</div>
+									<!-- Submit Button -->
+									<button type="submit" class="btn btn-primary">註冊</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 忘記密碼功能 Modal -->
+				<div class="modal fade" id="forget-modal" tabindex="-1"
+					aria-labelledby="forgetModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content"
+							style="background-color: rgba(33, 37, 41, 0.5);">
+							<!-- Transparent background -->
+							<div class="modal-header">
+								<!-- Modal Title -->
+								<h5 class="modal-title" id="forgetModalLabel"
+									style="text-align: left; color: rgba(255, 255, 255, 0.8);">給我你的電子信箱吧</h5>
+								<!-- Align left -->
+								<!-- Close Button -->
+								<button type="button" class="btn btn-close"
+									data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body" style="text-align: left;">
+								<!-- Align left -->
+								<!-- forget password Form -->
+								<form id="forgetForm">
+									<!-- Email Input Field -->
+									<div class="mb-3">
+										<label for="email" class="form-label">電子信箱</label> <input
+											type="email" class="form-control" id="forget-email"
+											placeholder="name@example.com" required>
+									</div>
+									<!-- Submit Button -->
+									<button type="submit" class="btn btn-primary">重設密碼</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer-->
+	<footer class="bg-light py-5" id="footer">
+		<div class="container px-4 px-lg-5">
+			<div class="small text-center text-muted">
+				<p>聯絡資訊</p>
+				<p>地址：237303 新北市三峽區大學路151號</p>
+				<p>電話：02-8674-1111</p>
+				<p>營業時間：8:00-22:00</p>
+				<p></p>
+				<p>Copyright &copy; 2024 - 運動場地租借系統 All Rights Reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Bootstrap core JS-->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- SimpleLightbox plugin JS-->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script> -->
+	<!-- jQuery library -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<!-- Popper.js library -->
+	<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+	<!-- crypto-js -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+	<!-- sweet alert -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- Core theme JS-->
+	<script src="js/scripts.js"></script>
+
+	<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date().toISOString().split('T')[0];
+        const minDate = '1920-01-01';
+        document.getElementById('register-birthday').setAttribute('max', today);
+        document.getElementById('register-birthday').setAttribute('min', minDate);
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const genderElement = document.querySelector('input[name="gender"]:checked');
+            const birthday = document.getElementById('register-birthday').value;
+            const phone = document.getElementById('register-phone').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('register-password').value;
+            const checkPassword = document.getElementById('register-checkPassword').value;
+
+            // Validate form data
+            const phoneRegex = /^09\d{8}$/;
+            const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+            let valid = true;
+
+            if (!genderElement) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: '警告',
+                    text: '請選擇性別'
+                });
+                valid = false;
+            } else {
+                gender = genderElement.value;
+            }
+
+            if (!phoneRegex.test(phone)) {
+                document.getElementById('register-phone').classList.add('is-invalid');
+                valid = false;
+            } else {
+                document.getElementById('register-phone').classList.remove('is-invalid');
+            }
+
+            if (!email.includes('@')) {
+                document.getElementById('email').classList.add('is-invalid');
+                valid = false;
+            } else {
+                document.getElementById('email').classList.remove('is-invalid');
+            }
+
+            if (!passwordRegex.test(password)) {
+                document.getElementById('register-password').classList.add('is-invalid');
+                valid = false;
+            } else {
+                document.getElementById('register-password').classList.remove('is-invalid');
+            }
+
+            if (password !== checkPassword) {
+                document.getElementById('register-checkPassword').classList.add('is-invalid');
+                valid = false;
+            } else {
+                document.getElementById('register-checkPassword').classList.remove('is-invalid');
+            }
+
+            const birthdayDate = new Date(birthday);
+            const minBirthdayDate = new Date(minDate);
+            const maxBirthdayDate = new Date(today);
+
+            if (birthdayDate < minBirthdayDate || birthdayDate > maxBirthdayDate) {
+                document.getElementById('register-birthday').classList.add('is-invalid');
+                valid = false;
+            } else {
+                document.getElementById('register-birthday').classList.remove('is-invalid');
+            }
+
+            if (!valid) {
+                return;
+            }
+            // If all validations pass, submit the form or proceed
+            fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    gender: gender,
+                    birthday: birthday,
+                    phone: phone,
+                    email: email,
+                    password: password,
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: '成功',
+                        text: '註冊成功，請登入'
+                    }).then(() => {
+                        // Close the modal
+                        const registrationModal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));
+                        registrationModal.hide();
+                        // Redirect to login section
+                        window.location.href = '/index.html#login';
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '錯誤',
+                        text: data.message
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: '錯誤',
+                    text: '註冊過程中發生錯誤，請稍後重試'
+                });
+            });
+        });
+    });
+
+    // Login ajax
+    document.getElementById("loginForm").addEventListener("submit", async function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        const email = document.getElementById('exampleInputEmail1').value;
+        const password = document.getElementById('login-password').value;
+
+        // Password validation
+        var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        const passwordInput = document.getElementById("login-password");
+        if (!passwordRegex.test(password)) {
+            passwordInput.setCustomValidity("密碼長度至少為8個字符，且包含至少一個數字、一個小寫字母和一個大寫字母");
+            passwordInput.reportValidity();
+            return;
+        } else {
+            passwordInput.setCustomValidity(""); // Clear any previous error message
+        }
+
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email, password: password })
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '成功',
+                    text: '登入成功'
+                }).then(() => {
+                    // 將用戶的電子郵件存儲在本地存儲或會話存儲中
+                    sessionStorage.setItem('userEmail', email);
+                    // 根據是否是管理員進行跳轉
+                    if (data.admin) {
+                        window.location.href = '/backstage/admin.html'; // 跳轉到管理員頁面
+                    } else {
+                        window.location.href = '/backstage/index.html'; // 跳轉到普通用戶頁面
+                    }
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: '錯誤',
+                    text: '登入失敗: ' + data.message
+                });
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: '錯誤',
+                text: '登入失敗，請稍後重試'
+            });
+        }
+    });
+
+    // Add event listener to clear custom validity message when user starts typing
+    document.getElementById("login-password").addEventListener("input", function() {
+        this.setCustomValidity("");
+    });
+    
+    document.getElementById('forgetForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // 阻止表單默認提交行為
+
+        var email = document.getElementById('forget-email').value;
+
+        fetch('/forget-password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: email })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '郵件已發送',
+                    text: '重設密碼的郵件已發送到您的信箱',
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: '發送失敗',
+                    text: '發送郵件時出錯，請稍後再試',
+                });
+            }
+        })
+        .catch(error => {
+            console.error('錯誤:', error);
+            Swal.fire({
+                icon: 'error',
+                title: '發送失敗',
+                text: '發送郵件時出錯，請稍後再試',
+            });
+        });
+    });
+    </script>
+</body>
+</html>

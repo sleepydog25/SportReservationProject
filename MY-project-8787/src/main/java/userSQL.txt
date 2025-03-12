@@ -1,0 +1,81 @@
+-- CREATE DATABASE web;
+USE web;
+drop table if exists users;
+
+
+CREATE TABLE reservations (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    time VARCHAR(255) NOT NULL,
+    equipment BOOLEAN NOT NULL,
+    field VARCHAR(255) NOT NULL
+);
+
+drop table if exists reservations;
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    birthday DATE NOT NULL,
+    phone VARCHAR(15),
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    uuid CHAR(36) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO users (name, gender, birthday, phone, email, password, uuid)
+VALUES
+('詹恒原', 'male', '1995-03-10', '0912345678', 'john.doe@example.com', '$2a$10$rxDB.8BVCXhO7uRhDT13jOucSTb83UwQo4mDit8SSRO1X8pOu6eM2', '550e8400-e29b-41d4-a716-446655440000'),
+('李珮瑜', 'female', '1990-07-22', '0923456789', 'jane.smith@example.com', '$2a$10$ef6dldQe7YpM5gK3qf.M9e3kVQZ5aQpB/x8ATZk6l6WZewo7LxqBi', '550e8400-e29b-41d4-a716-446655440001'),
+('吳季枝', 'others', '2005-01-15', '0934567890', 'kevin.wu@example.com', '$2a$10$46xuFC/U68yIUe7FsUO7ieWzB8yPG3BzOjD9YHZQrvhZaZyJTBDD2', '550e8400-e29b-41d4-a716-446655440002'),
+('陳威芳', 'male', '1988-09-03', '0945678901', 'amy.chen@example.com', '$2a$10$M7Ud6BY5jwkpImM.G0FT8.5W4q.IeX9z1bUWl/x3BLf5VyoC3T3pG', '550e8400-e29b-41d4-a716-446655440003'),
+('張志治', 'female', '1992-05-20', '0956789012', 'david.zhang@example.com', '$2a$10$xMMSo7eMKLRUdyoq8zXVXu2WJ2B/7V0Z9BW1NYzqGGqslNogTPbC6', '550e8400-e29b-41d4-a716-446655440004'),
+('張嘉郁', 'male', '1985-11-12', '0967890123', 'sarah.zhang@example.com', '$2a$10$lH1v2KjHE0PHJH8ZAFqj9ejp/VCizsIdBR49mE/FS5ZnF1gVtOjae', '550e8400-e29b-41d4-a716-446655440005'),
+('崔安木', 'female', '1998-04-28', '0978901234', 'michael.tsui@example.com', '$2a$10$.MkTnGzGtvH0ZSdHIE6tguP8TZ9C4u3tzk5t3bXWp.sX6FqkHUYWC', '550e8400-e29b-41d4-a716-446655440006'),
+('朱佩芸', 'male', '1993-12-07', '0989012345', 'lisa.chu@example.com', '$2a$10$jxk/MyeM8OJPCGv5wOCFM.7E45j3WTB2/bst.3VosuIwRllfXG86y', '550e8400-e29b-41d4-a716-446655440007'),
+('周吟翰', 'female', '1987-08-18', '0990123456', 'steven.chou@example.com', '$2a$10$a97HBrHaW7CrATFnmfJTXuR4pJau6kC0t.Z6uGat7lIPijlUs0Nnq', '550e8400-e29b-41d4-a716-446655440008'),
+('陳美婷', 'others', '2000-02-14', '0910234567', 'emily.chen@example.com', '$2a$10$NHgJqcmJm8F8o3RlW3fyS.yHPnC08Hq/w2ccR0bO4HbbODSxVXgby', '550e8400-e29b-41d4-a716-446655440009'),
+('賴俊東', 'male', '1989-06-25', '0921345678', 'kevin.lai@example.com', '$2a$10$wqW5qCt0/L0JVQLuWg27o.8aTJ0hKmWuIgNpTjG2uB9qfpVz4EGDy', '550e8400-e29b-41d4-a716-446655440010'),
+('許淑琴', 'female', '1991-10-30', '0932456789', 'lily.hsu@example.com', '$2a$10$in7CQ81wOrfdpS7DakJZsuIAZEl.1UJwXHJF5sF3z85CK2yUCYvYu', '550e8400-e29b-41d4-a716-446655440011'),
+('黃美山', 'others', '2003-07-05', '0943567890', 'steve.wong@example.com', '$2a$10$qZOlDlBRthOQTPAZ3/Pzou5A2A77/U6u4h5rddS0CvNd.5fwnAAfu', '550e8400-e29b-41d4-a716-446655440012'),
+('陳世志', 'male', '1966-11-23', '0954678901', 'vicky.chen@example.com', '$2a$10$vN1gsE1M5MZz7BLg0AZ8uON7c2zYGoEVhz8mYz5B9Ggh/fRvP/7qK', '550e8400-e29b-41d4-a716-446655440013'),
+('張浩慈', 'female', '1997-03-08', '0965789012', 'andy.zhang@example.com', '$2a$10$4HC5/8ryZzv.B2Z34yO0Neym1xzqKHugFEkeRt0ym0xKK5EkeFF/i', '550e8400-e29b-41d4-a716-446655440014'),
+('梁芸軍', 'male', '1984-09-16', '0976890123', 'julia.liang@example.com', '$2a$10$0TVoP7Z0dMRCbCz3BoV1Be5MDR2ZwemWGLG07tPEXzvFEQX6IdZ1.', '550e8400-e29b-41d4-a716-446655440015'),
+('黃正信', 'female', '1994-05-24', '0987901234', 'peter.huang@example.com', '$2a$10$YQv2sbWT4oFmWkDaIenr4OwwacZ4juFwW4o4kx9BSd9W7xOoUeXje', '550e8400-e29b-41d4-a716-446655440016'),
+('楊敏然', 'male', '1983-01-28', '0998901234', 'cathy.yang@example.com', '$2a$10$lMCrRi0GyXjXnNzKBgytXO.WfXZnINxdmBoAsmGq/K70Nt0UlKk5G', '550e8400-e29b-41d4-a716-446655440017'),
+('魏佩怡', 'female', '1989-08-03', '0910012345', 'sam.wei@example.com', '$2a$10$9u5BdbJiZfm/kO7nZcJvgeLtzz1p3hBmIex9GOdC6xxQunm1NOLi2', '550e8400-e29b-41d4-a716-446655440018'),
+('連曼昕', 'male', '2012-04-02', '0921123456', 'linda.lian@example.com', '$2a$10$UKmM11L7h7kGdqBdDqlM6u7vm7bG2A2GH8tdgd1fe.EvL8f5CvCmy', '550e8400-e29b-41d4-a716-446655440019'),
+('蔡志昀', 'female', '1996-10-12', '0932234567', 'jason.tsai@example.com', '$2a$10$S4IIm19K8lF5L5.4rWzg2OyT1lIwzFThBzSSAz2Ls9NcUz7iqM7mS', '550e8400-e29b-41d4-a716-446655440020'),
+('尤冠志', 'others', '2014-12-25', '0943345678', 'grace.you@example.com', '$2a$10$jV9pFJr4Rh5t9TmXmSQuXe.vSvlCKzyt0F/kVe6Zv8NnhR1t3nF1u', '550e8400-e29b-41d4-a716-446655440021'),
+('張建宏', 'male', '1982-06-08', '0954456789', 'kevin.zhang@example.com', '$2a$10$ZB6PdTSiFVnbuXrx2l2hDOdfdo/JaFjK2umzSh8q6nWt1V20UPGn2', '550e8400-e29b-41d4-a716-446655440022'),
+('吳政汝', 'female', '1999-02-13', '0965567890', 'andy.wu@example.com', '$2a$10$Nxyo7zXeOfpE/ZsKZ2M4ye2KOhV.4rfoO0UWBlIT8S5Sj/vN9cOMC', '550e8400-e29b-41d4-a716-446655440023'),
+('張豐珍', 'male', '1981-08-19', '0976678901', 'sophia.zhang@example.com', '$2a$10$1mMA1kIYBLN6hDYeOh4P.e.PWzPlIX4N1SXV1zmePTzIXcU0J2/2m', '550e8400-e29b-41d4-a716-446655440024'),
+('張育佳', 'female', '1990-04-15', '0987789012', 'jimmy.zhang@example.com', '$2a$10$76h/b6cOUsD6NU.9f.fYX.GYPg..nBy6q/peLoX6R3OQ3Ve55IDKK', '550e8400-e29b-41d4-a716-446655440025'),
+('陳淑如', 'others', '2001-10-20', '0998890123', 'betty.chen@example.com', '$2a$10$y6DZntD2WjW7zht0yj2EDOefb/wSwkFEc1e7lVY7rD4i.WrCiz.zS', '550e8400-e29b-41d4-a716-446655440026'),
+('王上康', 'male', '1984-05-03', '0910001234', 'maggie.wang@example.com', '$2a$10$zsjpRrRSpUj8szrMMhukg.xR04gVMf.bMXY/aQ91yU4E5F2yWsnUW', '550e8400-e29b-41d4-a716-446655440027'),
+('崔宜蓁', 'female', '1993-11-29', '0921112345', 'chris.tsui@example.com', '$2a$10$fgOW4sf2m7I85wysHHDz8.l4P9wfyG3q6f35oV5/UZw.1MAUwfwPW', '550e8400-e29b-41d4-a716-446655440028'),
+('陳淑彥', 'male', '1980-07-06', '0932223456', 'rachel.chen@example.com', '$2a$10$bP2CZ2TTHWvTT7n86V2sXuNSDTo7ALF.zj3K2X0I9e17S.3dNltU2', '550e8400-e29b-41d4-a716-446655440029'),
+('劉家銘', 'female', '1995-01-18', '0943334567', 'leo.liu@example.com', '$2a$10$NYbKADhHw79gQbZzNWyfieclH1YHw2g/8uOhwrzr7DzTtovcZcL0W', '550e8400-e29b-41d4-a716-446655440030'),
+('梁雅君', 'others', '2006-04-30', '0954445678', 'jason.liang@example.com', '$2a$10$dn4M2s4oQV1Fv5PL62axzeTAD3K3XBLeZiU/K.SQf9uBJ58ffTApC', '550e8400-e29b-41d4-a716-446655440031'),
+('吳大鈞', 'male', '1943-09-14', '0965556789', 'cindy.wu@example.com', '$2a$10$RIk6erwqOMrM.J5m9/8zfeKBbsfN4RDUQfE/EGp02UY1e5CjqShb2', '550e8400-e29b-41d4-a716-446655440032'),
+('魏君豪', 'female', '1998-03-02', '0976667890', 'alex.wei@example.com', '$2a$10$TzUOF4dAPYwq5aFPZB3iCuXkuzr7m0G3cRZK.4NvFJ1lmECl4KuL.', '550e8400-e29b-41d4-a716-446655440033'),
+('張瑋聖', 'male', '1987-07-28', '0987778901', 'tina.zhang@example.com', '$2a$10$lcyfGeGdU3zFb.3idLrRU.LYg7nT0b5cn8LYI1J9X76hQQOu1fW.e', '550e8400-e29b-41d4-a716-446655440034'),
+('林瑞平', 'female', '1992-01-16', '0998889012', 'tony.lin@example.com', '$2a$10$WKRiUmCmyoiehFZfdq2pIegwNY2ktLNEO.HLkZ4oL7MyNZojXKYlO', '550e8400-e29b-41d4-a716-446655440035'),
+('鄭合霞', 'male', '1985-06-05', '0910112345', 'nancy.cheng@example.com', '$2a$10$AYsvrMj6vDQu2c/f2i.9m.S7whU22EkPYn13q3hIyW5KTB96eL19K', '550e8400-e29b-41d4-a716-446655440036'),
+('吳威廷', 'female', '1994-12-08', '0921223456', 'jerry.wu@example.com', '$2a$10$uhmCVOUGyflKgIMM.E9kZ.zKZAS5k4n1K0mYosWcicE3f65fZcT.O', '550e8400-e29b-41d4-a716-446655440037'),
+('劉玫恭', 'others', '2010-08-21', '0932334567', 'larry.liu@example.com', '$2a$10$G.oo9gtS8TQD2JLcKF4P8OTG.gXjq5yS0T9J1F6A0z0QzOQ.qLsJe', '550e8400-e29b-41d4-a716-446655440038'),
+('張瑋仲', 'male', '1981-04-05', '0943445678', 'judy.zhang@example.com', '$2a$10$zrY8x.II8KZEPBfKEfCUP./eMFWUu0FhDBMz0ukvF3mJ3DKx6LcqW', '550e8400-e29b-41d4-a716-446655440039'),
+('傅彥廷', 'female', '1997-11-22', '0954556789', 'eric.fu@example.com', '$2a$10$jqwGJWATjzyE8.F3HItQQO4Asw0uBIB2o66I41uLBJljGwNvsG5i6', '550e8400-e29b-41d4-a716-446655440040'),
+('林俊修', 'others', '2003-07-31', '0965667890', 'joe.lin@example.com', '$2a$10$8R/JFR3jWHxM7.MMP7/yfeBqaJ8sJBoIrr3BwKe0wHUbIq91s2ke6', '550e8400-e29b-41d4-a716-446655440041'),
+('吳涵芃', 'male', '1978-02-09', '0976778901', 'grace.wu@example.com', '$2a$10$8x2PpZM2TT6qIf6CgHOXKeaTWvUvN2t.T/vGjGn0aVfRpvJmc7Wde', '550e8400-e29b-41d4-a716-446655440042'),
+('姚嘉冰', 'female', '1990-09-27', '0987889012', 'eric.yao@example.com', '$2a$10$.BFe4DZp62GCH5v9wLzTWeC5oq74zq6FqCPWh2GrFOYsYb2a.D9d2', '550e8400-e29b-41d4-a716-446655440043'),
+('郭夢筠', 'male', '1999-06-14', '0998990123', 'betty.kuo@example.com', '$2a$10$EjC4E3mUR03BB.kj6mHAd.xC2DPQecZ7yN.Oan8BL9eD6WvSy0dum', '550e8400-e29b-41d4-a716-446655440044'),
+('柯原韋', 'female', '1983-01-02', '0910012345', 'leo.ko@example.com', '$2a$10$h7awJbe.mfNi5DSNDHT1PO2E9eGehE6wvXVvQO3p6M6I4QG7Nf7fG', '550e8400-e29b-41d4-a716-446655440045'),
+('陳亭昌', 'others', '1996-05-11', '0921123456', 'cathy.chen@example.com', '$2a$10$Z/9BVs9GRr9C6Rj6b5N.6OWenBLY0O1oZxf1a7gUdL04wJ4EAmkLa', '550e8400-e29b-41d4-a716-446655440046'),
+('林潔劭', 'male', '1984-11-05', '0932234567', 'helen.lin@example.com', '$2a$10$2vPInh6vJ5hMbEPU/Pjxg.7Uy0ubF8bgeGBN5bIu7q5JV8a3PE7jK', '550e8400-e29b-41d4-a716-446655440047'),
+('盧慧珊', 'female', '1982-07-18', '0943345678', 'leo.lu@example.com', '$2a$10$g27k4jmsPDsB6fU5IXL5beRshAeQcnz1T9/Gl6REBZ1U85JbM7Z7e', '550e8400-e29b-41d4-a716-446655440048'),
+('黃慧萍', 'male', '1963-03-27', '0954456789', 'betty.huang@example.com', '$2a$10$Eoc5EFE6FLwPl9v6Lj4g6OSNfP6D4zI/3Jz5Pm/93Bdy/k.XXrB0q', '550e8400-e29b-41d4-a716-446655440049');
+
+
+INSERT INTO reservations (id, email, date, time, equipment, field) VALUES ("1", "testing5@g.c", "2024-07-05", "09:00-10:00", 0, "第三桌球桌"), ("2", "testing5@g.c", "2024-07-08", "12:00-13:00", 0, "第一壁球場"), ("3", "testing1@g.c", "2024-07-09", "14:00-15:00", 0, "第一桌球桌"), ("4", "testing1@g.c", "2024-07-04", "11:00-12:00", 0, "第一桌球桌"), ("5", "testing4@g.c", "2024-07-04", "19:00-20:00", 0, "第一壁球場"), ("6", "testing3@g.c", "2024-07-07", "12:00-13:00", 1, "第二桌球桌"), ("7", "testing5@g.c", "2024-07-05", "09:00-10:00", 1, "第三羽毛球場"), ("8", "testing4@g.c", "2024-07-06", "10:00-11:00", 0, "第二撞球桌"), ("9", "testing3@g.c", "2024-07-08", "12:00-13:00", 1, "第一撞球桌"), ("10", "testing1@g.c", "2024-07-07", "10:00-11:00", 1, "第二羽毛球場"), ("11", "testing4@g.c", "2024-07-07", "09:00-10:00", 0, "第二羽毛球場"), ("12", "testing4@g.c", "2024-07-06", "12:00-13:00", 1, "第三壁球場"), ("13", "testing1@g.c", "2024-07-06", "09:00-10:00", 0, "第二桌球桌"), ("14", "testing3@g.c", "2024-07-05", "21:00-22:00", 1, "第三撞球桌"), ("15", "testing5@g.c", "2024-07-07", "15:00-16:00", 1, "第二羽毛球場"), ("16", "testing3@g.c", "2024-07-05", "17:00-18:00", 1, "第二桌球桌"), ("17", "testing2@g.c", "2024-07-05", "10:00-11:00", 0, "第一羽毛球場"), ("18", "testing1@g.c", "2024-07-08", "19:00-20:00", 0, "第三羽毛球場"), ("19", "testing4@g.c", "2024-07-05", "08:00-09:00", 1, "第一羽毛球場"), ("20", "testing4@g.c", "2024-07-07", "09:00-10:00", 0, "第一撞球桌"), ("21", "testing5@g.c", "2024-07-07", "11:00-12:00", 0, "第三撞球桌"), ("22", "testing3@g.c", "2024-07-07", "19:00-20:00", 1, "第三撞球桌"), ("23", "testing1@g.c", "2024-07-08", "13:00-14:00", 0, "第三桌球桌"), ("24", "testing5@g.c", "2024-07-07", "21:00-22:00", 0, "第二壁球場"), ("25", "testing4@g.c", "2024-07-04", "13:00-14:00", 0, "第二撞球桌"), ("26", "testing1@g.c", "2024-07-06", "14:00-15:00", 0, "第二桌球桌"), ("27", "testing5@g.c", "2024-07-04", "12:00-13:00", 0, "第二桌球桌"), ("28", "testing5@g.c", "2024-07-06", "14:00-15:00", 0, "第一壁球場"), ("29", "testing4@g.c", "2024-07-05", "17:00-18:00", 0, "第三桌球桌"), ("30", "testing5@g.c", "2024-07-04", "15:00-16:00", 0, "第二壁球場"), ("31", "testing4@g.c", "2024-07-09", "09:00-10:00", 1, "第二桌球桌"), ("32", "testing5@g.c", "2024-07-08", "13:00-14:00", 0, "第一壁球場"), ("33", "testing1@g.c", "2024-07-04", "10:00-11:00", 1, "第二壁球場"), ("34", "testing1@g.c", "2024-07-05", "09:00-10:00", 1, "第二桌球桌"), ("35", "testing3@g.c", "2024-07-05", "12:00-13:00", 0, "第一羽毛球場"), ("36", "testing4@g.c", "2024-07-05", "15:00-16:00", 1, "第二羽毛球場"), ("37", "testing5@g.c", "2024-07-09", "08:00-09:00", 0, "第一壁球場"), ("38", "testing5@g.c", "2024-07-05", "08:00-09:00", 0, "第三桌球桌"), ("39", "testing5@g.c", "2024-07-04", "12:00-13:00", 0, "第二羽毛球場"), ("40", "testing3@g.c", "2024-07-05", "15:00-16:00", 0, "第二桌球桌"), ("41", "testing1@g.c", "2024-07-04", "16:00-17:00", 1, "第三羽毛球場"), ("42", "testing2@g.c", "2024-07-06", "11:00-12:00", 0, "第二壁球場"), ("43", "testing5@g.c", "2024-07-06", "13:00-14:00", 1, "第二羽毛球場"), ("44", "testing3@g.c", "2024-07-08", "15:00-16:00", 0, "第三羽毛球場"), ("45", "testing2@g.c", "2024-07-09", "17:00-18:00", 0, "第三桌球桌"), ("46", "testing3@g.c", "2024-07-07", "08:00-09:00", 0, "第三羽毛球場"), ("47", "testing1@g.c", "2024-07-05", "13:00-14:00", 0, "第二壁球場"), ("48", "testing1@g.c", "2024-07-08", "16:00-17:00", 1, "第三桌球桌"), ("49", "testing2@g.c", "2024-07-07", "14:00-15:00", 1, "第二撞球桌"), ("50", "testing3@g.c", "2024-07-07", "10:00-11:00", 0, "第三羽毛球場"), ("51", "testing4@g.c", "2024-06-17", "09:00-10:00", 1, "第一撞球桌"), ("52", "testing1@g.c", "2024-06-18", "15:00-16:00", 0, "第一羽毛球場"), ("53", "testing2@g.c", "2024-06-21", "12:00-13:00", 1, "第一桌球桌"), ("54", "testing4@g.c", "2024-06-22", "16:00-17:00", 1, "第一壁球場"), ("55", "testing4@g.c", "2024-06-16", "09:00-10:00", 0, "第三壁球場"), ("56", "testing2@g.c", "2024-06-19", "21:00-22:00", 1, "第三羽毛球場"), ("57", "testing5@g.c", "2024-06-28", "09:00-10:00", 0, "第一壁球場"), ("58", "testing1@g.c", "2024-06-20", "12:00-13:00", 1, "第二撞球桌"), ("59", "testing2@g.c", "2024-06-24", "16:00-17:00", 0, "第三撞球桌"), ("60", "testing5@g.c", "2024-06-15", "17:00-18:00", 1, "第一撞球桌"), ("61", "testing4@g.c", "2024-06-19", "11:00-12:00", 1, "第三桌球桌"), ("62", "testing4@g.c", "2024-06-25", "08:00-09:00", 0, "第二撞球桌"), ("63", "testing4@g.c", "2024-06-22", "10:00-11:00", 1, "第三羽毛球場"), ("64", "testing5@g.c", "2024-06-19", "11:00-12:00", 1, "第一桌球桌"), ("65", "testing4@g.c", "2024-06-29", "16:00-17:00", 1, "第三桌球桌"), ("66", "testing1@g.c", "2024-06-17", "10:00-11:00", 0, "第三壁球場"), ("67", "testing5@g.c", "2024-06-20", "09:00-10:00", 0, "第三桌球桌"), ("68", "testing3@g.c", "2024-06-21", "09:00-10:00", 1, "第三羽毛球場"), ("69", "testing1@g.c", "2024-06-26", "11:00-12:00", 0, "第三桌球桌"), ("70", "testing2@g.c", "2024-06-15", "17:00-18:00", 1, "第一撞球桌"), ("71", "testing4@g.c", "2024-07-09", "13:00-14:00", 1, "第二桌球桌"), ("72", "testing1@g.c", "2024-06-27", "16:00-17:00", 1, "第二桌球桌"), ("73", "testing2@g.c", "2024-07-04", "14:00-15:00", 0, "第二壁球場"), ("74", "testing4@g.c", "2024-06-22", "16:00-17:00", 1, "第二撞球桌"), ("75", "testing2@g.c", "2024-06-15", "08:00-09:00", 0, "第一桌球桌"), ("76", "testing2@g.c", "2024-06-19", "09:00-10:00", 0, "第三桌球桌"), ("77", "testing3@g.c", "2024-07-04", "15:00-16:00", 0, "第一撞球桌"), ("78", "testing5@g.c", "2024-06-18", "16:00-17:00", 0, "第一羽毛球場"), ("79", "testing5@g.c", "2024-07-02", "10:00-11:00", 0, "第三撞球桌"), ("80", "testing1@g.c", "2024-07-06", "19:00-20:00", 1, "第一撞球桌"), ("81", "testing1@g.c", "2024-07-08", "11:00-12:00", 1, "第三壁球場"), ("82", "testing1@g.c", "2024-06-16", "19:00-20:00", 0, "第二壁球場"), ("83", "testing2@g.c", "2024-07-05", "10:00-11:00", 0, "第二桌球桌"), ("84", "testing2@g.c", "2024-06-19", "12:00-13:00", 1, "第一羽毛球場"), ("85", "testing2@g.c", "2024-06-19", "15:00-16:00", 0, "第二壁球場"), ("86", "testing4@g.c", "2024-06-24", "14:00-15:00", 0, "第一壁球場"), ("87", "testing2@g.c", "2024-06-15", "08:00-09:00", 1, "第三桌球桌"), ("88", "testing1@g.c", "2024-06-30", "10:00-11:00", 1, "第二羽毛球場"), ("89", "testing4@g.c", "2024-06-21", "09:00-10:00", 0, "第二撞球桌"), ("90", "testing3@g.c", "2024-07-08", "17:00-18:00", 1, "第三壁球場"), ("91", "maggie.wang@example.com", "2024-06-19", "17:00-18:00", 1, "第三羽毛球場"), ("92", "maggie.wang@example.com", "2024-06-16", "12:00-13:00", 1, "第二撞球桌"), ("93", "chris.tsui@example.com", "2024-06-25", "10:00-11:00", 1, "第三桌球桌"), ("94", "maggie.wang@example.com", "2024-07-06", "13:00-14:00", 1, "第二撞球桌"), ("95", "chris.tsui@example.com", "2024-06-28", "11:00-12:00", 1, "第二羽毛球場"), ("96", "betty.chen@example.com", "2024-06-23", "21:00-22:00", 0, "第三羽毛球場"), ("97", "chris.tsui@example.com", "2024-06-26", "21:00-22:00", 0, "第二桌球桌"), ("98", "maggie.wang@example.com", "2024-07-09", "11:00-12:00", 1, "第三壁球場"), ("99", "betty.chen@example.com", "2024-07-06", "12:00-13:00", 0, "第三撞球桌"), ("100", "maggie.wang@example.com", "2024-07-01", "16:00-17:00", 1, "第三桌球桌");

@@ -1,0 +1,935 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>運動場地預約系統</title>
+<meta content="" name="description">
+<meta content="" name="keywords">
+
+<!-- Favicons -->
+<!-- <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+	rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+	rel="stylesheet">
+<link href="assets/vendor/boxicons/css/boxicons.min.css"
+	rel="stylesheet">
+<link href="assets/vendor/glightbox/css/glightbox.min.css"
+	rel="stylesheet">
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<!-- Bootstrap Datepicker CSS -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
+
+<!-- Template Main CSS File -->
+<link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+<style>
+#progress-container {
+	position: relative;
+	width: 100%;
+}
+
+.progress {
+	height: 30px;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+#progress-bar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#progress-text {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+}
+
+#trophy {
+	position: absolute;
+	right: 0;
+	top: -10px;
+	display: flex;
+	align-items: center;
+}
+
+#trophy img {
+	width: 30px;
+	height: 30px;
+}
+
+.card-title {
+	display: flex;
+	align-items: center;
+}
+
+.card-title img {
+	margin-right: 10px;
+	width: 30px;
+	height: 30px;
+}
+
+<!--
+ranking-->.ranking {
+	display: flex;
+	align-items: baseline;
+}
+
+.ranking .numerator {
+	font-size: 2rem; /* 分子字體較大 */
+}
+
+.ranking .denominator {
+	font-size: 1rem; /* 分母字體較小 */
+	margin-left: 0.5rem;
+}
+
+.loader {
+  width: 100%;
+  height: 30px;
+  border-radius: 20px;
+  background: 
+    repeating-linear-gradient(135deg, #149ddd 0 10px, #040b14 0 20px) 0/0% no-repeat,
+    repeating-linear-gradient(135deg, #ddd 0 10px, #eee 0 20px) 0/100%;
+  animation: l3 2s forwards;
+}
+
+
+@keyframes l3 {
+  100% { background-size: 100%; }
+}
+
+</style>
+
+<script>
+    
+    </script>
+<body>
+
+	<!-- ======= Mobile nav toggle button ======= -->
+	<i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+	<!-- ======= Header ======= -->
+	<header id="header">
+		<div class="d-flex flex-column">
+
+			<div class="profile">
+				<img src="assets/img/profile-img.jpg" alt=""
+					class="img-fluid rounded-circle">
+				<h1 class="text-light">
+					<a href="./personal-page.html" id="user-name"> </a>
+				</h1>
+			</div>
+
+			<nav id="navbar" class="nav-menu navbar">
+				<ul>
+					<li><a href="#" class="nav-link scrollto active"><i
+							class="bx bx-home"></i> <span>首頁</span></a></li>
+					<li><a href="./my-register.html" class="nav-link scrollto"><i
+							class="bx bx-book-content"></i> <span>我的預約</span></a></li>
+					<li><a href="./register-history.html"
+						class="nav-link scrollto"><i class="bx bx-server"></i> <span>我的練習紀錄</span></a></li>
+				</ul>
+			</nav>
+			<!-- .nav-menu -->
+		</div>
+	</header>
+	<!-- End Header -->
+
+	<main id="main">
+
+		<!-- section status -->
+		<section id="status" class="section-bg">
+			<div class="container">
+				<div class="section-title">
+					<h2>積分專區</h2>
+					<p>嘿~你的運動成果都會在這裡<br>排名顯示了你在我們所有使用者中借閱次數，積分顯示你和下一個段位的距離<br>多運動一下，你的小獎盃會變色喔!加油 ~ </p>
+					
+				</div>
+				<!-- cards -->
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">
+									<img src="assets/img/bronze.png" alt="Trophy"> 積分進度
+								</h5>
+								<div id="progress-container">
+									<div class="progress">
+										<div id="progress-bar" class="progress-bar loader"
+											role="progressbar" style="width: 0%;" aria-valuenow="0"
+											aria-valuemin="0" aria-valuemax="100">
+											<span id="progress-text">50/100</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<!-- <div class="card-body">
+								<h5 class="card-title">排名</h5>
+								<div id="rankingContainer"></div> -->
+						<div class="card">
+							<div class="card-body">
+								<h4 class="card-title">排名</h4>
+								<div class="ranking">
+									<span id="numerator" class="numerator">#</span> <span>/</span>
+									<span id="denominator" class="denominator">#</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+		<!-- ======= Portfolio Section ======= -->
+		<section id="portfolio" class="portfolio section-bg">
+			<div class="container">
+
+				<div class="section-title">
+					<h1>場地預約</h1>
+					<p>點選「+」即可預約。左邊欄位顯示「暫停開放」或「使用中」則不開放預約。</p>
+				</div>
+				<div class="row" data-aos="fade-up">
+					<div class="col-lg-12 d-flex justify-content-center">
+						<ul id="portfolio-flters">
+							<li data-filter="*" class="filter-active">所有場地</li>
+							<li data-filter=".filter-badminton">羽球場</li>
+							<li data-filter=".filter-squash">壁球場</li>
+							<li data-filter=".filter-table">桌球桌</li>
+							<li data-filter=".filter-billard">撞球桌</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row portfolio-container" data-aos="fade-up"
+					data-aos-delay="100">
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-badminton">
+						<div class="portfolio-wrap">
+							<img src="assets/img/portfolio/01.jpg" class="img-fluid"
+								style="object-fit: cover; width: 100%; height: 100%; aspect-ratio: 5/4;"
+								alt="">
+							<div class="portfolio-overlay">
+								<div class="portfolio-text">
+									<p>第一羽毛球場</p>
+								</div>
+								<div class="portfolio-links">
+									<p class="reservation-status" data-field="第一羽毛球場">預約狀態</p>
+									<button id="modal-trigger" type="button" class=""
+										data-bs-toggle="modal" data-bs-target="#modalBadminton"
+										title="第一羽毛球場">
+										<i class="bx bx-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-badminton">
+						<div class="portfolio-wrap">
+							<img src="assets/img/portfolio/01.jpg" class="img-fluid"
+								style="object-fit: cover; width: 100%; height: 100%; aspect-ratio: 5/4;"
+								alt="">
+							<div class="portfolio-overlay">
+								<div class="portfolio-text">
+									<p>第二羽毛球場</p>
+								</div>
+								<div class="portfolio-links">
+									<p class="reservation-status" data-field="第二羽毛球場">預約狀態</p>
+									<button id="modal-trigger" type="button" class=""
+										data-bs-toggle="modal" data-bs-target="#modalBadminton"
+										title="第二羽毛球場">
+										<i class="bx bx-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-badminton">
+						<div class="portfolio-wrap">
+							<img src="assets/img/portfolio/01.jpg" class="img-fluid"
+								style="object-fit: cover; width: 100%; height: 100%; aspect-ratio: 5/4;"
+								alt="">
+							<div class="portfolio-overlay">
+								<div class="portfolio-text">
+									<p>第三羽毛球場</p>
+								</div>
+								<div class="portfolio-links">
+									<p class="reservation-status" data-field="第三羽毛球場">預約狀態</p>
+									<button id="modal-trigger" type="button" class=""
+										data-bs-toggle="modal" data-bs-target="#modalBadminton"
+										title="第三羽毛球場">
+										<i class="bx bx-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-squash">
+						<div class="portfolio-wrap">
+							<img src="assets/img/portfolio/02.jpg" class="img-fluid"
+								class="img-fluid"
+								style="object-fit: cover; width: 100%; height: 100%; aspect-ratio: 5/4;"
+								alt="">
+							<div class="portfolio-overlay">
+								<div class="portfolio-text">
+									<p>第一壁球球場</p>
+								</div>
+								<div class="portfolio-links">
+									<p class="reservation-status" data-field="第一壁球球場">預約狀態</p>
+									<button id="modal-trigger" type="button" class=""
+										data-bs-toggle="modal" data-bs-target="#modalSquash"
+										title="第一壁球球場">
+										<i class="bx bx-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-squash">
+						<div class="portfolio-wrap">
+							<img src="assets/img/portfolio/02.jpg" class="img-fluid"
+								class="img-fluid"
+								style="object-fit: cover; width: 100%; height: 100%; aspect-ratio: 5/4;"
+								alt="">
+							<div class="portfolio-overlay">
+								<div class="portfolio-text">
+									<p>第二壁球球場</p>
+								</div>
+								<div class="portfolio-links">
+									<p class="reservation-status" data-field="第二壁球球場">預約狀態</p>
+									<button id="modal-trigger" type="button" class=""
+										data-bs-toggle="modal" data-bs-target="#modalSquash"
+										title="第二壁球球場">
+										<i class="bx bx-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-squash">
+						<div class="portfolio-wrap">
+							<img src="assets/img/portfolio/02.jpg" class="img-fluid"
+								class="img-fluid"
+								style="object-fit: cover; width: 100%; height: 100%; aspect-ratio: 5/4;"
+								alt="">
+							<div class="portfolio-overlay">
+								<div class="portfolio-text">
+									<p>第三壁球球場</p>
+								</div>
+								<div class="portfolio-links">
+									<p class="reservation-status" data-field="第三壁球球場">預約狀態</p>
+									<button id="modal-trigger" type="button" class=""
+										data-bs-toggle="modal" data-bs-target="#modalSquash"
+										title="第三壁球球場">
+										<i class="bx bx-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-table">
+						<div class="portfolio-wrap">
+							<img src="assets/img/portfolio/03.jpg" class="img-fluid"
+								class="img-fluid"
+								style="object-fit: cover; width: 100%; height: 100%; aspect-ratio: 5/4;"
+								alt="">
+							<div class="portfolio-overlay">
+								<div class="portfolio-text">
+									<p>第一桌球桌</p>
+								</div>
+								<div class="portfolio-links">
+									<p class="reservation-status" data-field="第一桌球桌">預約狀態</p>
+									<button id="modal-trigger" type="button" class=""
+										data-bs-toggle="modal" data-bs-target="#modalTabletennis"
+										title="第一桌球桌">
+										<i class="bx bx-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-table">
+						<div class="portfolio-wrap">
+							<img src="assets/img/portfolio/03.jpg" class="img-fluid"
+								class="img-fluid"
+								style="object-fit: cover; width: 100%; height: 100%; aspect-ratio: 5/4;"
+								alt="">
+							<div class="portfolio-overlay">
+								<div class="portfolio-text">
+									<p>第二桌球桌</p>
+								</div>
+								<div class="portfolio-links">
+									<p class="reservation-status" data-field="第二桌球桌">預約狀態</p>
+									<button id="modal-trigger" type="button" class=""
+										data-bs-toggle="modal" data-bs-target="#modalTabletennis"
+										title="第二桌球桌">
+										<i class="bx bx-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-table">
+						<div class="portfolio-wrap">
+							<img src="assets/img/portfolio/03.jpg" class="img-fluid"
+								style="object-fit: cover; width: 100%; height: 100%; aspect-ratio: 5/4;"
+								alt="">
+							<div class="portfolio-overlay">
+								<div class="portfolio-text">
+									<p>第三桌球桌</p>
+								</div>
+								<div class="portfolio-links">
+									<p class="reservation-status" data-field="第三桌球桌">預約狀態</p>
+									<button id="modal-trigger" type="button" class=""
+										data-bs-toggle="modal" data-bs-target="#modalTabletennis"
+										title="第三桌球桌">
+										<i class="bx bx-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-billard">
+						<div class="portfolio-wrap">
+							<img src="assets/img/portfolio/04.jpg" class="img-fluid"
+								style="object-fit: cover; width: 100%; height: 100%; aspect-ratio: 5/4;"
+								alt="">
+							<div class="portfolio-overlay">
+								<div class="portfolio-text">
+									<p>第一撞球桌</p>
+								</div>
+								<div class="portfolio-links">
+									<p class="reservation-status" data-field="第一撞球桌">預約狀態</p>
+									<button id="modal-trigger" type="button" class=""
+										data-bs-toggle="modal" data-bs-target="#modalBillard"
+										title="第一撞球桌">
+										<i class="bx bx-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-billard">
+						<div class="portfolio-wrap">
+							<img src="assets/img/portfolio/04.jpg" class="img-fluid"
+								style="object-fit: cover; width: 100%; height: 100%; aspect-ratio: 5/4;"
+								alt="">
+							<div class="portfolio-overlay">
+								<div class="portfolio-text">
+									<p>第二撞球桌</p>
+								</div>
+								<div class="portfolio-links">
+									<p class="reservation-status" data-field="第二撞球桌">預約狀態</p>
+									<button id="modal-trigger" type="button" class=""
+										data-bs-toggle="modal" data-bs-target="#modalBillard"
+										title="第二撞球桌">
+										<i class="bx bx-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-billard">
+						<div class="portfolio-wrap">
+							<img src="assets/img/portfolio/04.jpg" class="img-fluid"
+								style="object-fit: cover; width: 100%; height: 100%; aspect-ratio: 5/4;"
+								alt="">
+							<div class="portfolio-overlay">
+								<div class="portfolio-text">
+									<p>第三撞球桌</p>
+								</div>
+								<div class="portfolio-links">
+									<p class="reservation-status" data-field="第三撞球桌">預約狀態</p>
+									<button id="modal-trigger" type="button" class=""
+										data-bs-toggle="modal" data-bs-target="#modalBillard"
+										title="第三撞球桌">
+										<i class="bx bx-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--row portfolio-container-->
+			</div>
+			<!--container-->
+		</section>
+		<!-- End Portfolio Section -->
+
+
+
+	</main>
+	<!-- End #main -->
+
+
+	<a href="#"
+		class="back-to-top d-flex align-items-center justify-content-center"><i
+		class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Vendor JS Files -->
+	<!-- Jquery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+	<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+	<script src="assets/vendor/aos/aos.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<script src="assets/vendor/typed.js/typed.umd.js"></script>
+	<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+	<script src="assets/vendor/php-email-form/validate.js"></script>
+	<!-- Bootstrap Datepicker JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- Template Main JS File -->
+	<script src="assets/js/main.js"></script>
+
+<script>
+    // update user name
+    document.addEventListener('DOMContentLoaded', function () {
+        const email = sessionStorage.getItem('userEmail');
+        if (email) {
+            fetch(`/api/user-name?email=${email}`)
+                .then(response => response.text())
+                .then(name => {
+                    if (name) {
+                        document.getElementById('user-name').innerText = `${name}您好`;
+                    } else {
+                        document.getElementById('user-name').innerText = '使用者您好';
+                    }
+                })
+                .catch(error => console.error('Error fetching user name:', error));
+        } else {
+            console.error('No email found in sessionStorage.');
+        }
+    });
+
+    // date picker
+    $(document).ready(function () {
+        // Get today's date
+        var today = new Date();
+
+        // Calculate the date one week from today
+        var oneWeekLater = new Date();
+        oneWeekLater.setDate(today.getDate() + 7);
+
+        // Initialize datepicker
+        $('#datepicker').datepicker({
+            format: 'yyyy-mm-dd', // Date format
+            autolose: true, // Close the datepicker when a date is selected
+            todayHighlight: true, // Highlight today's date
+            startDate: today, // Restrict date selection to dates starting from today
+            endDate: oneWeekLater // Restrict date selection to dates up to one week later
+        });
+    });
+
+    //-----------------------------------------------------
+    document.addEventListener("DOMContentLoaded", function () {
+        checkAllReservationStatuses();
+        document.getElementById('modal-trigger').addEventListener('click', function () {
+            var modal1Options = ['第一羽毛球場', '第二羽毛球場', '第三羽毛球場'];
+            generateModal('modalBadminton', '羽毛球場', modal1Options);
+            var modal2Options = ['第一壁球球場', '第二壁球球場', '第三壁球球場'];
+            generateModal('modalSquash', '壁球球場', modal2Options);
+            var modal3Options = ['第一桌球桌', '第二桌球桌', '第三桌球桌'];
+            generateModal('modalTabletennis', '桌球桌', modal3Options);
+            var modal4Options = ['第一撞球桌', '第二撞球桌', '第三撞球桌'];
+            generateModal('modalBillard', '撞球桌', modal4Options);
+        });
+    });
+
+    // ranking
+    document.addEventListener('DOMContentLoaded', function () {
+        const email = sessionStorage.getItem('userEmail');
+        if (email) {
+            fetch(`/api/reservations/user-ranking?email=${email}`)
+                .then(response => response.text())
+                .then(data => {
+                    const [numerator, denominator] = data.split('/');
+                    document.getElementById('numerator').innerText = numerator;
+                    document.getElementById('denominator').innerText = denominator;
+                })
+                .catch(error => console.error('Error fetching ranking:', error));
+        } else {
+            console.error('No email found in sessionStorage.');
+        }
+    });
+
+    // progress
+    document.addEventListener('DOMContentLoaded', function () {
+        function updateProgressBar(current, max) {
+            var progressBar = document.getElementById('progress-bar');
+            var progressText = document.getElementById('progress-text');
+            if (progressBar && progressText) {
+                var percentage = (current / max) * 100;
+                progressBar.style.width = percentage + '%';
+                progressBar.setAttribute('aria-valuenow', current);
+                progressText.textContent = current + '/' + max;
+            } else {
+                console.error("Progress bar elements not found.");
+            }
+        }
+
+        // 假設你有一個API來獲取當前的預約次數和升級所需次數
+        var currentReservations = 50; // 獲取當前預約次數
+        var upgradeThreshold = 100;   // 獲取升級所需的次數
+
+        updateProgressBar(currentReservations, upgradeThreshold);
+    });
+
+    function checkAllReservationStatuses() {
+        const statusElements = document.querySelectorAll('.reservation-status');
+        statusElements.forEach(element => {
+            const field = element.getAttribute('data-field');
+            checkReservationStatus(field, element);
+        });
+    }
+
+    function checkReservationStatus(field, element) {
+        fetch(`/api/reservations/check-status?field=${field}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === '不開放') {
+                    element.textContent = '不開放';
+                    element.style.color = 'white';
+                } else {
+                    element.textContent = '開放中';
+                    element.style.color = 'white';
+                }
+            })
+            .catch(error => console.error('Error fetching reservation status:', error));
+    }
+
+    async function fetchReservedTimeslots(date, field) {
+        const response = await fetch(`/api/reservations/timeslots?date=${date}&field=${field}`);
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Failed to fetch reserved timeslots');
+        }
+    }
+
+    function generateModal(modalId, modalTitle, options) {
+        // Check if the modal already exists
+        if (document.getElementById(modalId)) {
+            return;
+        }
+
+        let modalContent = `
+<div class="modal fade" id="${modalId}" tabindex="-1" aria-labelledby="${modalId}Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color:rgba(39, 40, 41, 0.8); color:#fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="${modalId}Label">${modalTitle}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>歡迎預約場地與時間。</p>
+                <form class="row gx-3 align-items-center" id="reservationForm-${modalId}" action="/api/reservations">
+                    <p>選擇場地：</p>
+                    <div id="${modalId}-body-options" class="row gx-3 align-items-center"></div>
+                    <p>
+                    <p>是否借用球具：</p>
+                    <div class="row gx-3 align-items-center">
+                        <div class="col-auto">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="equipment" value="true" id="y-${modalId}">
+                                <label class="form-check-label" for="y-${modalId}">好</label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="equipment" value="false" id="n-${modalId}">
+                                <label class="form-check-label" for="n-${modalId}">再說</label>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                    <p>選擇日期：</p>
+                    <div class="row gx-3 align-items-center">
+                        <div class="col-auto">
+                            <div class="form-check">
+                                <label for="datepicker-${modalId}"></label>
+                                <input type="date" class="form-check-label" id="datepicker-${modalId}" name="date" placeholder="請選擇預約日期">
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                    <p>選擇時間：</p>
+                    <div id="${modalId}-time-options">
+                        <!-- Time options will be generated dynamically -->
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消預約</button>
+                <button type="button" class="btn btn-primary" id="submitReservation-${modalId}" style="background-color:#149ddd;border:none">確認預約</button>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+        // Add the modal content to the document body
+        document.body.insertAdjacentHTML('beforeend', modalContent);
+
+        // Generate options dynamically
+        generateModalOptions(`${modalId}-body-options`, options);
+
+        // Set min and max date for datepicker
+        const today = new Date();
+        const maxDate = new Date(today);
+        today.setDate(today.getDate() + 1); // Increment today by 1 day
+        maxDate.setDate(today.getDate() + 7); // Set maxDate 7 days after today
+        const datePicker = document.getElementById(`datepicker-${modalId}`);
+        datePicker.min = today.toISOString().split('T')[0];
+        datePicker.max = maxDate.toISOString().split('T')[0];
+
+        // Bind the event listener to the dynamically created button
+        document.getElementById(`submitReservation-${modalId}`).addEventListener("click", async function (event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            const form = document.getElementById(`reservationForm-${modalId}`);
+            const formData = new FormData(form);
+
+            // Convert FormData to JSON object
+            const reservationData = {};
+            formData.forEach((value, key) => {
+                reservationData[key] = value;
+            });
+
+            // Add user email to the reservation data
+            const email = sessionStorage.getItem('userEmail'); // 獲取用戶 email
+            if (!email) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '錯誤',
+                    text: 'User email not found in sessionStorage'
+                });
+                return;
+            }
+            reservationData.email = email; // 將 email 添加到預約數據中
+
+            // Add modal options to the reservation data
+            reservationData.options = options;
+
+            // Log the reservation data to check the format
+            console.log("Reservation Data:", reservationData);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(reservationData)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    Swal.fire({
+                        icon: 'success',
+                        title: '成功',
+                        text: data.message
+                    }).then(() => {
+                        window.location.reload();
+                    });
+
+                    // Close the modal after successful reservation
+                    const modalElement = document.getElementById(modalId);
+                    const modalInstance = bootstrap.Modal.getInstance(modalElement);
+                    if (modalInstance) {
+                        modalInstance.hide();
+                    }
+                } else {
+                    const errorData = await response.json();
+                    Swal.fire({
+                        icon: 'error',
+                        title: '錯誤',
+                        text: errorData.message || 'Unknown error'
+                    }).then(() => {
+                        window.location.reload();
+                    });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: '錯誤',
+                    text: 'Reservation failed: ' + error.message
+                }).then(() => {
+                    window.location.reload();
+                });
+            }
+        });
+
+        // Bind date change event to dynamically update time options
+        document.getElementById(`datepicker-${modalId}`).addEventListener("change", async function () {
+            const selectedDate = this.value;
+            const selectedField = document.querySelector(`#${modalId}-body-options input[name='field']:checked`).value;
+
+            try {
+                const reservedTimeslots = await fetchReservedTimeslots(selectedDate, selectedField);
+                updateAvailableTimes(`${modalId}-time-options`, reservedTimeslots);
+            } catch (error) {
+                console.error('Error fetching reserved timeslots:', error);
+            }
+        });
+    }
+
+    function updateAvailableTimes(containerId, reservedTimeslots) {
+        const timeSlots = [
+            "08:00-09:00", "09:00-10:00", "10:00-11:00", "11:00-12:00",
+            "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00",
+            "16:00-17:00", "17:00-18:00", "19:00-20:00", "21:00-22:00"
+        ];
+
+        const timeOptionsContainer = document.getElementById(containerId);
+        timeOptionsContainer.innerHTML = ''; // Clear previous options
+
+        timeSlots.forEach((timeSlot, index) => {
+            const isReserved = reservedTimeslots.includes(timeSlot);
+
+            const div = document.createElement('div');
+            div.classList.add('col-auto', 'form-check');
+
+            const input = document.createElement('input');
+            input.classList.add('form-check-input');
+            input.setAttribute('type', 'radio');
+            input.setAttribute('name', 'time');
+            input.setAttribute('id', `${containerId}-time${index}`);
+            input.setAttribute('value', timeSlot);
+            if (isReserved) {
+                input.setAttribute('disabled', 'true');
+            }
+
+            const label = document.createElement('label');
+            label.classList.add('form-check-label');
+            label.setAttribute('for', `${containerId}-time${index}`);
+            label.textContent = timeSlot;
+
+            div.appendChild(input);
+            div.appendChild(label);
+            timeOptionsContainer.appendChild(div);
+        });
+    }
+
+    function generateModalOptions(containerId, options) {
+        const modalOptions = document.getElementById(containerId);
+        modalOptions.innerHTML = ''; // Clear previous content
+
+        options.forEach(function (option, index) {
+            const div = document.createElement('div');
+            div.classList.add('col-auto', 'form-check');
+
+            const input = document.createElement('input');
+            input.classList.add('form-check-input');
+            input.setAttribute('type', 'radio');
+            input.setAttribute('name', 'field');
+            input.setAttribute('id', `${containerId}-option${index}`);
+            input.setAttribute('value', option);
+
+            const label = document.createElement('label');
+            label.classList.add('form-check-label');
+            label.setAttribute('for', `${containerId}-option${index}`);
+            label.textContent = option;
+
+            div.appendChild(input);
+            div.appendChild(label);
+            modalOptions.appendChild(div);
+        });
+    }
+  //old ranking
+
+
+ // $(document).ready(function() {
+//      // 從 sessionStorage 中讀取電子郵件
+//      const email = sessionStorage.getItem('userEmail');
+
+//      if (email) {
+//          $.ajax({
+//              url: '/api/reservations/user-ranking',
+//              method: 'GET',
+//              data: { email: email },
+//              success: function(data) {
+//                  displayRanking(data);
+//              },
+//              error: function(error) {
+//                  console.error('Error fetching ranking:', error);
+//              }
+//          });
+//      } else {
+//          console.error('No email found in sessionStorage');
+//      }
+
+//      function displayRanking(ranking) {
+//          const rankingContainer = $('#rankingContainer');
+//          const userEmail = ranking.email;
+//          const reservationCount = ranking.reservationCount;
+
+//          const cardHtml = `
+//              <div class="card">
+//                  <div class="card-body">
+//                  <!--　for old ranking function -->
+//                      <!--<h5 class="card-title">排名</h5>
+//                      <p class="card-text">使用者: ${userEmail}</p>
+//                      <p class="card-text">預約次數: ${reservationCount}</p>-->
+                     
+                     
+//                  </div>
+//              </div>
+//          `;
+
+//          rankingContainer.append(cardHtml);
+//      }
+ // });
+</script>
+
+
+
+
+
+
+</body>
+
+</html>
